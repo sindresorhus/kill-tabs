@@ -1,0 +1,41 @@
+{
+  "name": "kill-tabs",
+  "version": "0.0.0",
+  "description": "Kill all Chrome tabs to improve performance, decrease battery usage, and save memory",
+  "license": "MIT",
+  "repository": "sindresorhus/kill-tabs",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "chrome",
+    "browser",
+    "tabs",
+    "kill",
+    "killall",
+    "performance"
+  ],
+  "dependencies": {
+    "fkill": "^1.0.0",
+    "meow": "^3.3.0",
+    "ps-list": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
