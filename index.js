@@ -1,6 +1,11 @@
 'use strict';
 var psList = require('ps-list');
 var fkill = require('fkill');
+var processName = process.platform === 'darwin' ? 'Chrome Helper' : 'chrome';
+
+if (process.platform === 'win32') {
+	psList = require('./win');
+}
 
 module.exports = function (cb) {
 	cb = cb || function () {};
@@ -12,7 +17,7 @@ module.exports = function (cb) {
 		}
 
 		var pids = list.filter(function (x) {
-			return x.cmd.indexOf('Chrome Helper') !== -1 &&
+			return x.cmd.indexOf(processName) !== -1 &&
 				x.cmd.indexOf('--type=renderer') !== -1 &&
 				x.cmd.indexOf('--extension-process') === -1;
 		}).map(function (x) {

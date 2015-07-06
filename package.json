@@ -33,6 +33,7 @@
   "dependencies": {
     "fkill": "^1.0.0",
     "meow": "^3.3.0",
+    "neat-csv": "^1.0.0",
     "ps-list": "^2.0.0"
   },
   "devDependencies": {
