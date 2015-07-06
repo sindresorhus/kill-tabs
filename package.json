@@ -18,7 +18,8 @@
   },
   "files": [
     "index.js",
-    "cli.js"
+    "cli.js",
+    "win.js"
   ],
   "keywords": [
     "cli-app",
