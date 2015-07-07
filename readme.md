@@ -6,6 +6,8 @@
 
 I'm a [tab-abuser](https://cloud.githubusercontent.com/assets/170270/8513617/4290e966-2373-11e5-98d1-37560c2498e3.png) and I use this once in a while to prevent Chrome from taking up all system resources.
 
+When you run `kill-tabs` the Chrome tab processes are killed, which means they will no longer take up system resources, but they will still be in your Chrome window, just as crashed. When you want one back you just reload the tab.
+
 
 ## CLI
 
