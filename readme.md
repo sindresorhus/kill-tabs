@@ -38,6 +38,11 @@ killTabs(function (err) {
 ```
 
 
+## Tip
+
+You can use the [Reload All Tabs](https://chrome.google.com/webstore/detail/reload-all-tabs/lgpdljdpanfecnpindkbnikegohoobci) Chrome extension to easily reload all the tabs.
+
+
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
