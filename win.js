@@ -5,7 +5,9 @@ var neatCsv = require('neat-csv');
 module.exports = function (cb) {
 	var cmd = 'wmic process where Caption=\'chrome.exe\' get CommandLine,ProcessId /format:csv';
 
-	childProcess.exec(cmd, function (err, stdout) {
+	childProcess.exec(cmd, {
+		maxBuffer: 10 * 1024 * 1024
+	}, function (err, stdout) {
 		if (err) {
 			cb(err);
 			return;
