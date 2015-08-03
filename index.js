@@ -1,9 +1,10 @@
 'use strict';
 var psList = require('ps-list');
 var fkill = require('fkill');
+
 var processes = {
-  chrome : process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
-  chromium : 'chromium'
+	chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
+	chromium: 'chromium'
 };
 
 if (process.platform === 'win32') {
@@ -11,7 +12,11 @@ if (process.platform === 'win32') {
 }
 
 module.exports = function (opts, cb) {
-	opts = opts || {};
+	if (typeof opts !== 'object') {
+		cb = opts;
+		opts = {};
+	}
+
 	cb = cb || function () {};
 
 	psList(function (err, list) {
@@ -19,9 +24,11 @@ module.exports = function (opts, cb) {
 			cb(err);
 			return;
 		}
+
 		if (opts.chromium === false) {
 			delete processes.chromium;
 		}
+
 		if (opts.chrome === false) {
 			delete processes.chrome;
 		}

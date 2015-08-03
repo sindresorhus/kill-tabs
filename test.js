@@ -5,7 +5,7 @@ var killTabs = require('./');
 test(function (t) {
 	t.plan(1);
 
-	killTabs(undefined, function (err) {
+	killTabs(function (err) {
 		t.assert(!err, err);
 	});
 });

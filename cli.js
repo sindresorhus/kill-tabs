@@ -5,9 +5,12 @@ var killTabs = require('./');
 
 var cli = meow({
 	help: [
-		'Usage: kill-tabs [OPTIONS]',
-		'  --no-chromium       Do not kill tabs from Chromium',
-		'  --no-chrome         Do not kill tabs from Chrome'
+		'Usage',
+		'  $ kill-tabs',
+		'',
+		'Options',
+		'  --no-chromium  Don\'t kill tabs in Chromium',
+		'  --no-chrome    Don\'t kill tabs in Chrome'
 	]
 });
 
