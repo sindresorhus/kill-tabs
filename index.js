@@ -35,10 +35,10 @@ module.exports = function (opts, cb) {
 
 		var pids = list.filter(function (x) {
 			return Object.keys(processes).some(function (processName) {
-					return x.cmd.indexOf(processes[processName]) !== -1;
-				}) &&
-				x.cmd.indexOf('--type=renderer') !== -1 &&
-				x.cmd.indexOf('--extension-process') === -1;
+				return x.cmd.indexOf(processes[processName]) !== -1;
+			}) &&
+			x.cmd.indexOf('--type=renderer') !== -1 &&
+			x.cmd.indexOf('--extension-process') === -1;
 		}).map(function (x) {
 			return x.pid;
 		});

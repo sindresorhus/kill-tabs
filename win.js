@@ -1,6 +1,7 @@
 'use strict';
 var childProcess = require('child_process');
 var neatCsv = require('neat-csv');
+var TEN_MEBIBYTE = 1024 * 1024 * 10;
 
 module.exports = function (opts, cb) {
 	if (typeof opts !== 'object') {
@@ -13,7 +14,7 @@ module.exports = function (opts, cb) {
 	var cmd = 'wmic process where Caption=\'chrome.exe\' get CommandLine,ProcessId /format:csv';
 
 	childProcess.exec(cmd, {
-		maxBuffer: 10 * 1024 * 1024
+		maxBuffer: TEN_MEBIBYTE
 	}, function (err, stdout) {
 		if (err) {
 			cb(err);

@@ -20,6 +20,10 @@ $ kill-tabs --help
 
   Usage
     $ kill-tabs
+
+  Options
+    --no-chromium  Don't kill tabs in Chromium
+    --no-chrome    Don't kill tabs in Chrome
 ```
 
 
