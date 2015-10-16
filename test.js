@@ -1,11 +1,7 @@
-'use strict';
-var test = require('ava');
-var killTabs = require('./');
+import test from 'ava';
+import fn from './';
 
-test(function (t) {
+test(t => {
 	t.plan(1);
-
-	killTabs(function (err) {
-		t.assert(!err, err);
-	});
+	fn(err => t.ifError(err));
 });
