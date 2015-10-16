@@ -34,9 +34,9 @@ $ npm install --save kill-tabs
 ```
 
 ```js
-var killTabs = require('kill-tabs');
+const killTabs = require('kill-tabs');
 
-killTabs(function (err) {
+killTabs().then(() => {
 	console.log('Killed tabs');
 });
 ```
