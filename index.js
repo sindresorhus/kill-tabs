@@ -1,6 +1,6 @@
 'use strict';
-let psList = require('ps-list');
 const fkill = require('fkill');
+let psList = require('ps-list');
 
 const processes = {
 	chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
@@ -11,7 +11,7 @@ if (process.platform === 'win32') {
 	psList = require('./win');
 }
 
-module.exports = function (opts) {
+module.exports = opts => {
 	opts = opts || {};
 
 	return psList().then(list => {
@@ -23,16 +23,13 @@ module.exports = function (opts) {
 			delete processes.chrome;
 		}
 
-		const pids = list.filter(x => {
-			return Object.keys(processes).some(processName => {
-				return x.cmd.indexOf(processes[processName]) !== -1;
-			}) &&
-			x.cmd.indexOf('--type=renderer') !== -1 &&
-			x.cmd.indexOf('--extension-process') === -1;
-		}).map(x => {
-			return x.pid;
-		});
+		const pids = list
+			.filter(x =>
+				Object.keys(processes).some(name => x.cmd.includes(processes[name])) &&
+				x.cmd.includes('--type=renderer') &&
+				!x.cmd.includes('--extension-process'))
+			.map(x => x.pid);
 
-		return fkill(pids);
+		return fkill(pids, {force: true});
 	});
 };

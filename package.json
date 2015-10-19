@@ -11,7 +11,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "fkill": "^3.0.0",
-    "meow": "^3.3.0",
+    "meow": "^3.4.2",
     "neat-csv": "^1.0.0",
     "pify": "^2.2.0",
     "ps-list": "^3.0.0"
