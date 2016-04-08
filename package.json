@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "execall": "^1.0.0",
-    "fkill": "^3.0.0",
+    "fkill": "^4.0.0",
     "meow": "^3.4.2",
     "pify": "^2.2.0",
     "ps-list": "^3.0.0"

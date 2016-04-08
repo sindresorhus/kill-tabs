@@ -1,4 +1,4 @@
 import test from 'ava';
-import fn from './';
+import m from './';
 
-test(async () => await fn());
+test(async () => await m());

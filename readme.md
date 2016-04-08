@@ -49,4 +49,4 @@ You can use the [Reload All Tabs](https://chrome.google.com/webstore/detail/relo
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
