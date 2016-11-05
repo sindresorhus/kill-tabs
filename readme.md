@@ -2,6 +2,8 @@
 
 > Kill all Chrome tabs to improve performance, decrease battery usage, and save memory
 
+<img src="https://cloud.githubusercontent.com/assets/33569/19500764/18c8872e-9555-11e6-9599-dfab7ed90140.png" width="300" align="right">
+
 *Works on macOS, Linux, Windows.*
 
 I'm a [tab-abuser](https://cloud.githubusercontent.com/assets/170270/8513617/4290e966-2373-11e5-98d1-37560c2498e3.png) and I use this once in a while to prevent Chrome from taking up all system resources.
