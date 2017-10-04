@@ -10,6 +10,7 @@ const cli = meow(`
 	Options
 	  --no-chromium  Don't kill tabs in Chromium
 	  --no-chrome    Don't kill tabs in Chrome
+    --kill-browser Kill main browser process
 `);
 
 killTabs(cli.flags);
