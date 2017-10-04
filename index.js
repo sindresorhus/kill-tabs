@@ -4,7 +4,7 @@ let psList = require('ps-list');
 
 const processes = {
 	chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
-	chromium: 'chromium'
+	chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium'
 };
 
 if (process.platform === 'win32') {
