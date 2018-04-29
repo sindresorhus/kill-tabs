@@ -13,10 +13,12 @@ const cli = meow(`
 `, {
 	flags: {
 		chromium: {
-			type: 'boolean'
+			type: 'boolean',
+			default: true
 		},
 		chrome: {
-			type: 'boolean'
+			type: 'boolean',
+			default: true
 		}
 	}
 });
