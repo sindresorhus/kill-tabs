@@ -32,15 +32,16 @@ $ kill-tabs --help
 ## API
 
 ```
-$ npm install --save kill-tabs
+$ npm install kill-tabs
 ```
 
 ```js
 const killTabs = require('kill-tabs');
 
-killTabs().then(() => {
+(async () => {
+	await killTabs();
 	console.log('Killed tabs');
-});
+})();
 ```
 
 

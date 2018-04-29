@@ -1,48 +1,45 @@
 {
-  "name": "kill-tabs",
-  "version": "2.1.0",
-  "description": "Kill all Chrome tabs to improve performance, decrease battery usage, and save memory",
-  "license": "MIT",
-  "repository": "sindresorhus/kill-tabs",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "bin": "cli.js",
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js",
-    "cli.js",
-    "win.js"
-  ],
-  "keywords": [
-    "cli-app",
-    "cli",
-    "chrome",
-    "browser",
-    "tabs",
-    "kill",
-    "killall",
-    "performance"
-  ],
-  "dependencies": {
-    "execall": "^1.0.0",
-    "fkill": "^4.0.0",
-    "meow": "^3.4.2",
-    "pify": "^2.2.0",
-    "ps-list": "^3.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "kill-tabs",
+	"version": "2.1.0",
+	"description": "Kill all Chrome tabs to improve performance, decrease battery usage, and save memory",
+	"license": "MIT",
+	"repository": "sindresorhus/kill-tabs",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js",
+		"cli.js",
+		"win.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"chrome",
+		"browser",
+		"tabs",
+		"kill",
+		"killall",
+		"performance"
+	],
+	"dependencies": {
+		"execall": "^1.0.0",
+		"fkill": "^5.3.0",
+		"meow": "^5.0.0",
+		"pify": "^3.0.0",
+		"ps-list": "^4.0.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"xo": "*"
+	}
 }

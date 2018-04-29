@@ -1,4 +1,6 @@
 import test from 'ava';
-import m from './';
+import m from '.';
 
-test(async () => await m());
+test('main', async t => {
+	await t.notThrows(m());
+});
