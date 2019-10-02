@@ -24,7 +24,7 @@ const cli = meow(`
 		brave: {
 			type: 'boolean',
 			default: true
-		},
+		}
 	}
 });
 
