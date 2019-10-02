@@ -10,6 +10,7 @@ const cli = meow(`
 	Options
 	  --no-chromium  Don't kill tabs in Chromium
 	  --no-chrome    Don't kill tabs in Chrome
+	  --no-brave     Don't kill tabs in Brave
 `, {
 	flags: {
 		chromium: {
@@ -19,7 +20,11 @@ const cli = meow(`
 		chrome: {
 			type: 'boolean',
 			default: true
-		}
+		},
+		brave: {
+			type: 'boolean',
+			default: true
+		},
 	}
 });
 

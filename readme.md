@@ -26,6 +26,7 @@ $ kill-tabs --help
   Options
     --no-chromium  Don't kill tabs in Chromium
     --no-chrome    Don't kill tabs in Chrome
+    --no-brave     Don't kill tabs in Brave
 ```
 
 
