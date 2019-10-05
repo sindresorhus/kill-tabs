@@ -11,7 +11,8 @@ module.exports = async (options = {}) => {
 
 	const processes = {
 		chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
-		chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium'
+		chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium',
+		brave: process.platform === 'darwin' ? 'Brave Helper' : 'brave'
 	};
 
 	if (options.chromium === false) {
@@ -20,6 +21,10 @@ module.exports = async (options = {}) => {
 
 	if (options.chrome === false) {
 		delete processes.chrome;
+	}
+
+	if (options.brave === false) {
+		delete processes.brave;
 	}
 
 	const pids = list
