@@ -19,7 +19,7 @@
 	"files": [
 		"index.js",
 		"cli.js",
-		"win.js"
+		"windows.js"
 	],
 	"keywords": [
 		"cli-app",
@@ -33,14 +33,14 @@
 		"performance"
 	],
 	"dependencies": {
-		"execall": "^1.0.0",
-		"fkill": "^5.3.0",
+		"execall": "^2.0.0",
+		"fkill": "^6.2.0",
 		"meow": "^5.0.0",
-		"pify": "^3.0.0",
-		"ps-list": "^4.0.0"
+		"pify": "^4.0.1",
+		"ps-list": "^6.3.0"
 	},
 	"devDependencies": {
-		"ava": "*",
-		"xo": "*"
+		"ava": "^2.4.0",
+		"xo": "^0.25.3"
 	}
 }

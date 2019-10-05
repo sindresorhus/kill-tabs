@@ -3,7 +3,7 @@ const fkill = require('fkill');
 let psList = require('ps-list');
 
 if (process.platform === 'win32') {
-	psList = require('./win');
+	psList = require('./windows');
 }
 
 module.exports = async (options = {}) => {

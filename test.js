@@ -1,6 +1,6 @@
 import test from 'ava';
-import m from '.';
+import killTabs from '.';
 
 test('main', async t => {
-	await t.notThrows(m());
+	await t.notThrowsAsync(killTabs());
 });
