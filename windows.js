@@ -10,7 +10,7 @@ module.exports = async () => {
 	const stdout = await pify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
 
 	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, stdout).map(element => ({
-		cmd: element.sub[0],
+		cmd: element.subMatches[0],
 		pid: parseInt(element.subMatches[1], 10)
 	}));
 };
