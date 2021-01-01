@@ -1,4 +1,4 @@
-# kill-tabs [![Build Status](https://travis-ci.org/sindresorhus/kill-tabs.svg?branch=master)](https://travis-ci.org/sindresorhus/kill-tabs)
+# kill-tabs
 
 > Kill all Chrome tabs to improve performance, decrease battery usage, and save memory
 
