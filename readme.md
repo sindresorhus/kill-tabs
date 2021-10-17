@@ -10,11 +10,10 @@ I'm a [tab-abuser](https://cloud.githubusercontent.com/assets/170270/8513617/429
 
 When you run `kill-tabs` the Chrome tab processes are killed, which means they will no longer take up system resources, but they will still be in your Chrome window, just as crashed. When you want one back you just reload the tab.
 
-
 ## CLI
 
-```
-$ npm install --global kill-tabs
+```sh
+npm install --global kill-tabs
 ```
 
 ```
@@ -29,22 +28,18 @@ $ kill-tabs --help
     --no-brave     Don't kill tabs in Brave
 ```
 
-
 ## API
 
-```
-$ npm install kill-tabs
+```sh
+npm install kill-tabs
 ```
 
 ```js
-const killTabs = require('kill-tabs');
+import killTabs from 'kill-tabs';
 
-(async () => {
-	await killTabs();
-	console.log('Killed tabs');
-})();
+await killTabs();
+console.log('Killed tabs');
 ```
-
 
 ## Tip
 

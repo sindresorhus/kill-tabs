@@ -1,18 +1,16 @@
-'use strict';
-const fkill = require('fkill');
-let psList = require('ps-list');
+import process from 'node:process';
+import fkill from 'fkill';
+import psList from 'ps-list';
+import windows from './windows.js';
 
-if (process.platform === 'win32') {
-	psList = require('./windows');
-}
-
-module.exports = async (options = {}) => {
-	const list = await psList();
+export default async function killTabs(options = {}) {
+	const processList = process.platform === 'win32' ? windows : psList;
+	const list = await processList();
 
 	const processes = {
 		chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
 		chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium',
-		brave: process.platform === 'darwin' ? 'Brave Helper' : 'brave'
+		brave: process.platform === 'darwin' ? 'Brave Helper' : 'brave',
 	};
 
 	if (options.chromium === false) {
@@ -28,12 +26,12 @@ module.exports = async (options = {}) => {
 	}
 
 	const pids = list
-		.filter(x =>
-			Object.keys(processes).some(name => x.cmd.includes(processes[name])) &&
-			x.cmd.includes('--type=renderer') &&
-			!x.cmd.includes('--extension-process')
+		.filter(process_ =>
+			Object.keys(processes).some(name => process_.cmd.includes(processes[name]))
+			&& process_.cmd.includes('--type=renderer')
+			&& !process_.cmd.includes('--extension-process'),
 		)
-		.map(x => x.pid);
+		.map(process_ => process_.pid);
 
 	return fkill(pids, {force: true});
-};
+}
