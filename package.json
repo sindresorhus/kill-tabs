@@ -1,6 +1,6 @@
 {
 	"name": "kill-tabs",
-	"version": "3.1.1",
+	"version": "4.0.0",
 	"description": "Kill all Chrome tabs to improve performance, decrease battery usage, and save memory",
 	"license": "MIT",
 	"repository": "sindresorhus/kill-tabs",
