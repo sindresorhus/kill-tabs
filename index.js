@@ -10,7 +10,7 @@ export default async function killTabs(options = {}) {
 	const processes = {
 		chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
 		chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium',
-		brave: process.platform === 'darwin' ? 'Brave Helper' : 'brave',
+		brave: process.platform === 'darwin' ? 'Brave Browser Helper' : 'brave',
 	};
 
 	if (options.chromium === false) {
