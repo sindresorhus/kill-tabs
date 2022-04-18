@@ -10,6 +10,7 @@ const cli = meow(`
 	  --no-chromium  Don't kill tabs in Chromium
 	  --no-chrome    Don't kill tabs in Chrome
 	  --no-brave     Don't kill tabs in Brave
+	  --no-edge      Don't kill tabs in Edge
 `, {
 	importMeta: import.meta,
 	flags: {
@@ -22,6 +23,10 @@ const cli = meow(`
 			default: true,
 		},
 		brave: {
+			type: 'boolean',
+			default: true,
+		},
+		edge: {
 			type: 'boolean',
 			default: true,
 		},
