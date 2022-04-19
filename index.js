@@ -11,6 +11,7 @@ export default async function killTabs(options = {}) {
 		chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',
 		chromium: process.platform === 'darwin' ? 'Chromium Helper' : 'chromium',
 		brave: process.platform === 'darwin' ? 'Brave Browser Helper' : 'brave',
+		edge: process.platform === 'darwin' ? 'Microsoft Edge Helper' : 'edge',
 	};
 
 	if (options.chromium === false) {
@@ -23,6 +24,10 @@ export default async function killTabs(options = {}) {
 
 	if (options.brave === false) {
 		delete processes.brave;
+	}
+
+	if (options.edge === false) {
+		delete processes.edge;
 	}
 
 	const pids = list
