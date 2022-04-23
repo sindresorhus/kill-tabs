@@ -23,8 +23,8 @@ export default async function killTabs(options) {
 		browsers.push('Caption=\'msedge.exe\'');
 	}
 
-	const args = ['process', 'where', browsers.join(' or '), 'get', 'CommandLine,ProcessId', '/format:list'];
-	const response = await promisify(childProcess.execFile)('wmic', args, {maxBuffer: TEN_MEBIBYTE});
+	const arguments_ = ['process', 'where', browsers.join(' or '), 'get', 'CommandLine,ProcessId', '/format:list'];
+	const response = await promisify(childProcess.execFile)('wmic', arguments_, {maxBuffer: TEN_MEBIBYTE});
 
 	if (response.stderr && !response.stderr.includes('No Instance(s) Available.')) {
 		throw new Error('Failed to kill tabs.', {cause: new Error(response.stderr)});
