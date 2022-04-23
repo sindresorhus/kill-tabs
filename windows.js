@@ -9,8 +9,7 @@ export default async function killTabs() {
 	const response = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
 
 	if (response.stderr) {
-		console.error(response.stderr);
-		throw new Error('Failed to kill tabs.');
+		throw new Error('Failed to kill tabs.', {cause: new Error(response.stderr)});
 	}
 
 	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, response.stdout).map(element => ({
