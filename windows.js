@@ -5,22 +5,22 @@ import execall from 'execall';
 const TEN_MEBIBYTE = 1024 * 1024 * 10;
 
 export default async function killTabs(options) {
-	const browsers = []
+	const browsers = [];
 
 	if (options.chromium) {
-		browsers.push('Caption=\'chromium.exe\'')
+		browsers.push('Caption=\'chromium.exe\'');
 	}
 
 	if (options.chrome) {
-		browsers.push('Caption=\'chrome.exe\'')
+		browsers.push('Caption=\'chrome.exe\'');
 	}
 
 	if (options.brave) {
-		browsers.push('Caption=\'brave.exe\'')
+		browsers.push('Caption=\'brave.exe\'');
 	}
 
 	if (options.edge) {
-		browsers.push('Caption=\'msedge.exe\'')
+		browsers.push('Caption=\'msedge.exe\'');
 	}
 
 	const command = `wmic process where "${browsers.join(' or ')}" get CommandLine,ProcessId /format:list`;
