@@ -4,8 +4,26 @@ import execall from 'execall';
 
 const TEN_MEBIBYTE = 1024 * 1024 * 10;
 
-export default async function killTabs() {
-	const command = 'wmic process where Caption=\'chrome.exe\' get CommandLine,ProcessId /format:list';
+export default async function killTabs(options) {
+	const browsers = []
+
+	if (options.chromium) {
+		browsers.push('Caption=\'chromium.exe\'')
+	}
+
+	if (options.chrome) {
+		browsers.push('Caption=\'chrome.exe\'')
+	}
+
+	if (options.brave) {
+		browsers.push('Caption=\'brave.exe\'')
+	}
+
+	if (options.edge) {
+		browsers.push('Caption=\'msedge.exe\'')
+	}
+
+	const command = `wmic process where "${browsers.join(' or ')}" get CommandLine,ProcessId /format:list`;
 	const stdout = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
 
 	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, stdout).map(element => ({
