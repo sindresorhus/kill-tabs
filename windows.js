@@ -23,8 +23,8 @@ export default async function killTabs(options) {
 		browsers.push('Caption=\'msedge.exe\'');
 	}
 
-	const command = `wmic process where "${browsers.join(' or ')}" get CommandLine,ProcessId /format:list`;
-	const stdout = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
+	const args = ['process', 'where', browsers.join(' or '), 'get','CommandLine,ProcessId', '/format:list'];
+	const stdout = await promisify(childProcess.execFile)('wmic', args, {maxBuffer: TEN_MEBIBYTE});
 
 	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, stdout).map(element => ({
 		cmd: element.subMatches[0],
