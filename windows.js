@@ -6,14 +6,14 @@ const TEN_MEBIBYTE = 1024 * 1024 * 10;
 
 export default async function killTabs() {
 	const command = 'wmic process where Caption=\'chrome.exe\' get CommandLine,ProcessId /format:list';
-	const res = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
+	const response = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
 
-	if (res.stderr) {
-		console.error(res.stderr)
-		process.exit(1)
+	if (response.stderr) {
+		console.error(response.stderr);
+		throw new Error('Failed to kill tabs.');
 	}
 
-	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, res.stdout).map(element => ({
+	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, response.stdout).map(element => ({
 		cmd: element.subMatches[0],
 		pid: Number.parseInt(element.subMatches[1], 10),
 	}));
