@@ -24,9 +24,13 @@ export default async function killTabs(options) {
 	}
 
 	const args = ['process', 'where', browsers.join(' or '), 'get', 'CommandLine,ProcessId', '/format:list'];
-	const stdout = await promisify(childProcess.execFile)('wmic', args, {maxBuffer: TEN_MEBIBYTE});
+	const response = await promisify(childProcess.execFile)('wmic', args, {maxBuffer: TEN_MEBIBYTE});
 
-	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, stdout).map(element => ({
+	if (response.stderr) {
+		throw new Error('Failed to kill tabs.', {cause: new Error(response.stderr)});
+	}
+
+	return execall(/CommandLine=(.+)\s+ProcessId=(\d+)/g, response.stdout).map(element => ({
 		cmd: element.subMatches[0],
 		pid: Number.parseInt(element.subMatches[1], 10),
 	}));
