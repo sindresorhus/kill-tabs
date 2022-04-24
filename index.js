@@ -4,8 +4,7 @@ import psList from 'ps-list';
 import windows from './windows.js';
 
 export default async function killTabs(options = {}) {
-	const processList = process.platform === 'win32' ? windows : psList;
-	const list = await processList();
+	const list = process.platform === 'win32' ? await windows(options) : await psList();
 
 	const processes = {
 		chrome: process.platform === 'darwin' ? 'Chrome Helper' : 'chrome',

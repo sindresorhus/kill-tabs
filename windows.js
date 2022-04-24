@@ -4,11 +4,29 @@ import execall from 'execall';
 
 const TEN_MEBIBYTE = 1024 * 1024 * 10;
 
-export default async function killTabs() {
-	const command = 'wmic process where Caption=\'chrome.exe\' get CommandLine,ProcessId /format:list';
-	const response = await promisify(childProcess.exec)(command, {maxBuffer: TEN_MEBIBYTE});
+export default async function killTabs(options) {
+	const browsers = [];
 
-	if (response.stderr) {
+	if (options.chromium) {
+		browsers.push('Caption=\'chromium.exe\'');
+	}
+
+	if (options.chrome) {
+		browsers.push('Caption=\'chrome.exe\'');
+	}
+
+	if (options.brave) {
+		browsers.push('Caption=\'brave.exe\'');
+	}
+
+	if (options.edge) {
+		browsers.push('Caption=\'msedge.exe\'');
+	}
+
+	const arguments_ = ['process', 'where', browsers.join(' or '), 'get', 'CommandLine,ProcessId', '/format:list'];
+	const response = await promisify(childProcess.execFile)('wmic', arguments_, {maxBuffer: TEN_MEBIBYTE});
+
+	if (response.stderr && !response.stderr.includes('No Instance(s) Available.')) {
 		throw new Error('Failed to kill tabs.', {cause: new Error(response.stderr)});
 	}
 
