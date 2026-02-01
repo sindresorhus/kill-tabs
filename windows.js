@@ -15,6 +15,10 @@ export default async function killTabs(options) {
 		browsers.push('Caption=\'chrome.exe\'');
 	}
 
+	if (options.chromeCanary && !options.chrome) {
+		browsers.push('Caption=\'chrome.exe\'');
+	}
+
 	if (options.brave) {
 		browsers.push('Caption=\'brave.exe\'');
 	}

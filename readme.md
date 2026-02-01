@@ -23,10 +23,11 @@ $ kill-tabs --help
     $ kill-tabs
 
   Options
-    --no-chromium  Don't kill tabs in Chromium
-    --no-chrome    Don't kill tabs in Chrome
-    --no-brave     Don't kill tabs in Brave
-    --no-edge      Don't kill tabs in Edge
+    --no-chromium        Don't kill tabs in Chromium
+    --no-chrome          Don't kill tabs in Chrome
+    --no-chrome-canary   Don't kill tabs in Chrome Canary
+    --no-brave           Don't kill tabs in Brave
+    --no-edge            Don't kill tabs in Edge
 ```
 
 ## API

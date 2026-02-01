@@ -6,3 +6,9 @@ test('main', async t => {
 		chrome: true,
 	}));
 });
+
+test('chrome canary', async t => {
+	await t.notThrowsAsync(killTabs({
+		chromeCanary: true,
+	}));
+});
